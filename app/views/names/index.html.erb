@@ -1,9 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      <h1><%= @name.name %></h1>
-      <p> <span class="label label-danger"><%= @name.gender %></span> <span class="label label-primary"><%= @name.country %></span> </p>
+      <h1><%= @names.name %></h1>
+      <p> <span class="label label-danger"><%= @names.gender %></span> <span class="label label-primary"><%= @names.country %></span> </p>
+      <ul class="list-inline">
+        <li>
+          <%= link_to 'allemand', names_path(country: :allemand, gender_cd: 1) %>
+        </li>
+        <li>
+          <%= link_to 'français', names_path(country: :français) %>
+        </li>
+        <li>
+          <%= link_to 'egyptien', names_path(country: :egyptien) %>
+        </li>
+        <li>
+          <%= link_to 'africain', names_path(country: :africain) %>
+        </li>
+      </ul>
+
     </div>
   </div>
 </div>
 
+<!--  @names = Name.all
+    @names = @names.where(nil) # creates an anonymous scope
+    @names = @names.gender(params[:gender]) if params[:gender].present?
+    @names = @names.country(params[:country]) if params[:country].present?
+    @name = @names.order("RANDOM()").first -->

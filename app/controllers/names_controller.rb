@@ -2,12 +2,10 @@ class NamesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
-    #@name = Name.order("RANDOM()").first
-    @names = Name.all
-    @names = @names.where(nil) # creates an anonymous scope
+    @names = Name.where(nil) # creates an anonymous scope
     @names = @names.gender(params[:gender]) if params[:gender].present?
     @names = @names.country(params[:country]) if params[:country].present?
-    @name = @names.order("RANDOM()").first
+    @names = @names.order("RANDOM()").first
   end
 
   def new
@@ -15,7 +13,7 @@ class NamesController < ApplicationController
   end
 
   def create
-    @name = Name.create(name_params)
+    @name = Name.create(book_params)
     if @name.save
       redirect_to name_path(@name)
     else
@@ -34,7 +32,7 @@ class NamesController < ApplicationController
 
   private
 
-  def name_params
-    params.require(:name).permit(:name, :country, :gender)
+  def book_params
+    params.require(:name).permit(:name, :country, :type)
   end
 end

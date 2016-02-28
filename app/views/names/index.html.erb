@@ -5,6 +5,11 @@
       <p> <span class="label label-danger"><%= @names.gender %></span> <span class="label label-primary"><%= @names.country %></span> </p>
       <ul class="list-inline">
         <li>
+          <%= simple_form_for @names do |f| %>
+          <%= f.button :submit, name: "gender", value: "1" %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to 'allemand', names_path(country: :allemand, gender_cd: 1) %>
         </li>
         <li>

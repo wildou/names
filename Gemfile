@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'simple_enum', '~> 2.0.0'
+gem 'has_scope'
 
 gem 'sass-rails'
 gem 'jquery-rails'
